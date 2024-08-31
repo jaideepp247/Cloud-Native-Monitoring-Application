@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitor</title>
+    
+    <!-- Google Charts API for Gauges -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['CPU', {{ cpu_metric }}],
+          ['Memory', {{ mem_metric }}]
+        ]);
+
+        var options = {
+          width: 400, height: 160,
+          redFrom: 80, redTo: 100,
+          yellowFrom: 60, yellowTo: 80,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('gauge_chart'));
+        chart.draw(data, options);
+      }
+    </script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #gauge_chart {
+            display: flex;
+            justify-content: center;
+        }
+
+        .message {
+            font-size: 1.5em;
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>System Resource Monitor</h1>
+    <div id="gauge_chart"></div>
+
+    {% if message %}
+    <div class="message">{{ message }}</div>
+    {% endif %}
+
+</body>
+</html>
