@@ -82,8 +82,9 @@ Before starting the project, ensure the following are installed and configured:
    This will create a deployment and service in your EKS cluster.
 3. Check the status of the deployment:
     ```bash
-    kubectl get deployments
-    kubectl get services
+    kubectl get deployment -n default (check deployments)
+    kubectl get service -n default (check service)
+    kubectl get pods -n default (to check the pods)
     ```
 4. Port-forward the service to access the application:
     ```bash
@@ -92,13 +93,9 @@ Before starting the project, ensure the following are installed and configured:
 
 ## Dependencies
 
-Ensure the following Python libraries are installed (listed in `Requirements.txt`):
+Ensure the following Python libraries listed in `Requirements.txt` are installed:
 
-- Flask
-- psutil
-- boto3
-- kubernetes
 
-Install them using:
+You can install them using:
 ```bash
 pip install -r Requirements.txt
