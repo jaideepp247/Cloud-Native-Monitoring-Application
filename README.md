@@ -6,17 +6,15 @@ This project is a Cloud-Native Resource Monitoring Application built using Pytho
 
 ## Features
 
-- **Real-time Resource Monitoring:** Displays CPU and memory usage with alert messages when usage exceeds 80%.
 - **Flask Web App:** A simple web interface using Python’s Flask framework.
 - **Dockerized Application:** The app is containerized using Docker for portability.
 - **AWS ECR Integration:** Docker image is pushed to AWS ECR.
-- **Kubernetes Orchestration:** The app is deployed on AWS EKS, making it scalable and manageable.
+- **Kubernetes Orchestration:** The app is deployed on AWS EKS.
 
 ## Files
 
-- `templates/`: Contains the HTML templates used by the Flask app for rendering the web interface.
+- `templates/`: Contains the HTML template for the Flask application.
 - `Dockerfile`: Defines the container configuration for the Flask application.
-- `README.md`: The documentation for the project (this file).
 - `Requirements.txt`: Lists the dependencies required by the Python application.
 - `app.py`: The main Flask application code that fetches system resource data and renders it on the web interface.
 - `ecr.py`: Python script to create an AWS ECR repository and obtain the repository URI.
@@ -30,7 +28,7 @@ Before starting the project, ensure the following are installed and configured:
 - **Docker:** Install Docker for containerization.
 - **Kubernetes and kubectl:** Install Kubernetes CLI (`kubectl`) to manage Kubernetes clusters.
 - **AWS CLI:** Configure AWS CLI for programmatic access.
-- **Python3:** Make sure Python3 is installed on your system.
+- **Python:** Make sure Python is installed on your system.
 
 ## Project Setup
 
